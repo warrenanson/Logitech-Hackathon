@@ -1,6 +1,7 @@
 import numpy
 import nltk
 from sys import stdin
+import sys
 from nltk.sentiment.vader import SentimentIntensityAnalyzer as SIA
 #nltk.downloader.download('vader_lexicon')
 
@@ -12,7 +13,7 @@ abuse = False
 print("Demo start!")
 
 
-with open('abuse word.txt','r') as f:
+with open(sys.argv[1],'r') as f:
     for line in f.readlines():
 
         pol_score = sia.polarity_scores(line)
@@ -27,4 +28,7 @@ with open('abuse word.txt','r') as f:
         #    print('[Warning] Your words are offensive! Stop abusing!\n')
 
 if abuse:
-    print("[Warning] You have been detected game abusing and will be banned from playing games for a week as punishment ")
+    print("[Warning] You have been detected game abusing and will be banned from playing games for a week as punishment! ")
+
+else:
+    print("[Message] Abusing not detected!")    

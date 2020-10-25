@@ -14,7 +14,7 @@ while True:
     word = input()
 
     pol_score = sia.polarity_scores(word)
-    pol_score['Word'] = word
+    #pol_score['Word'] = word
     results.append(pol_score)
     print(pol_score)
 
